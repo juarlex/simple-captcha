@@ -63,14 +63,12 @@ and in the controller's action authenticate it as
 
 ===Model Based
 
-In the view file within the form tags write this code
+====Mongoid
 
-  <%= show_simple_captcha(:object=>"user") %>
-
-and in the model class add this code
-
-  class User < ActiveRecord::Basse
-    apply_simple_captcha
+  class User 
+     include Mongoid::Document
+     include SimpleCaptcha::ModelHelpers
+     apply_simple_captcha
   end
 
 ====FormBuilder helper
